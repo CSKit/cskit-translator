@@ -29,6 +29,13 @@ gem 'jbuilder', '~> 1.2'
 
 gem "bootstrap-sass"
 
+gem "cskit", github: "CSOBerkeley/cskit-rb"
+gem "cskit-shkts", github: "CSOBerkeley/cskit-shkts-rb"
+
+group :development do
+  gem 'pry-nav'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
