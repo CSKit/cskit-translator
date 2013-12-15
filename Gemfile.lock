@@ -146,6 +146,7 @@ DEPENDENCIES
   cskit-shkts!
   jbuilder (~> 1.2)
   jquery-rails
+  pry
   pry-nav
   rails (= 4.0.2)
   sass-rails (~> 4.0.0)
