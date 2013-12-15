@@ -28,6 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem "bootstrap-sass"
+gem "devise"
 
 gem "cskit", github: "CSOBerkeley/cskit-rb"
 gem "cskit-shkts", github: "CSOBerkeley/cskit-shkts-rb"
