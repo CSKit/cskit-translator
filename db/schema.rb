@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131214211512) do
+ActiveRecord::Schema.define(version: 20131214231852) do
 
   create_table "phrases", force: true do |t|
     t.text     "key",        null: false
     t.integer  "sort_key",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "translations", force: true do |t|
+    t.integer  "phrases_id"
+    t.string   "locale"
+    t.text     "translation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
