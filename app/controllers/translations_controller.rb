@@ -1,6 +1,6 @@
 class TranslationsController < ApplicationController
   def create
-    binding.pry
+
     @phrase = Phrase.find(params[:phrase_id])
     @new_translation = @phrase.translations.build(trans_params)
 
