@@ -7,7 +7,10 @@ CSKitTranslator::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :translations, only: [:create]
+  resources :phrases, only: [:show] do
+    resources :translations, only: [:create]
+  end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
