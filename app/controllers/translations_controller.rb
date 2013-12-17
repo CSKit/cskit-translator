@@ -1,14 +1,15 @@
 class TranslationsController < ApplicationController
   def create
     binding.pry
-    @new_translation = Translation.new trans_params
+    @phrase = Phrase.find(params[:phrase_id])
+    @new_translation = @phrase.translations.build(trans_params)
 
     if @new_translation.save
       flash[:notice] = "Translation saved!"
-      redirect_to root_path
+      redirect_to phrase_path(@phrase)
     else 
       flash[:alert] = "Error - translation not saved."
-      render 'welcome#index'
+      render 'phrases#show'
     end
   end
 
