@@ -15,9 +15,14 @@
       <div class="row">
         <div class="col-lg-4 col-md-4">
           <p id="passage_text">
+            <% if params[:id] == '1' %>
+            "<span id="main_text"><%= @passage.key %></span>
+            <%= @passage_with_text.key %>"
+            <% else %>
             "<%= @passage_with_text[0].key %>
             <span id="main_text"><%= @passage.key %></span>
-            <%= @passage_with_text[2].key %>"
+            <%= @passage_with_text[1].key %>"
+            <% end %>
           </p>
         </div>
 
@@ -38,18 +43,6 @@
           <% end %>
         </div>
 
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6 col-lg-offset-2">
-          <%= link_to phrase_path(params[:id].to_i - 1), class: 'btn btn-success pull-left' do %>
-             <span class="glyphicon glyphicon-backward"></span> Previous
-          <% end %>
-
-          <%= link_to phrase_path(params[:id].to_i + 1), class: "btn btn-success pull-right" do %>
-            Next <span class="glyphicon glyphicon-forward"></span>
-          <% end %>
-        </div>
       </div>
 
     </div>

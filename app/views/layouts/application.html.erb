@@ -10,7 +10,24 @@
 
 <div class="navbar navbar-inverse navbar-static-top" style="padding-right: 15px">
   <%= link_to "S&H Translator", :root, class: 'navbar-brand' %>
+
   <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav navbar-left">
+      <li><%= link_to "Random!", phrase_path((Phrase.count * rand).to_i) %></li>
+
+      <% if @passage %>
+        <li>
+          <%= link_to phrase_path(params[:id].to_i - 1) do %>
+             <span class="glyphicon glyphicon-backward"></span> Previous
+          <% end %>
+        </li>
+        <li>
+          <%= link_to phrase_path(params[:id].to_i + 1) do %>
+            Next <span class="glyphicon glyphicon-forward"></span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li><a><%= current_user.email %></a></li>
