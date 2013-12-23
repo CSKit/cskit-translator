@@ -1,13 +1,9 @@
 require 'cskit'
 require 'cskit/science_health'
-require 'pry-nav'
 
 include CSKit::Readers
 
 SENTENCE_TERMINATOR_REGEX = /(\.\"|[\?\.])/
-
-def sort_key_for(line_number, page_number)
-end
 
 volume = CSKit.get_volume(:science_health)
 reader = ScienceHealthReader.new(volume)
@@ -15,8 +11,7 @@ sentence = ""
 sentence_index = 0
 
 reader.each_line(1, "vi") do |line, line_number, page_number|
-  sentence += "#{line.text}"
-  # binding.pry if sentence =~ /reign forever/
+  sentence += line.text
   sentence += " " unless sentence =~ /.*\-\z/
 
   if match = sentence.match(SENTENCE_TERMINATOR_REGEX)

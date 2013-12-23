@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Temporary merge branch 1
-ActiveRecord::Schema.define(version: 20131215053721) do
-=======
 ActiveRecord::Schema.define(version: 20131215000012) do
->>>>>>> Temporary merge branch 2
-
   create_table "phrases", force: true do |t|
     t.text     "key",        null: false
     t.integer  "sort_key",   null: false
@@ -24,7 +19,6 @@ ActiveRecord::Schema.define(version: 20131215000012) do
     t.datetime "updated_at"
   end
 
-<<<<<<< Temporary merge branch 1
   create_table "translations", force: true do |t|
     t.integer  "phrase_id"
     t.string   "locale"
@@ -44,15 +38,10 @@ ActiveRecord::Schema.define(version: 20131215000012) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
->>>>>>> Temporary merge branch 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-<<<<<<< Temporary merge branch 1
-=======
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
->>>>>>> Temporary merge branch 2
 end
