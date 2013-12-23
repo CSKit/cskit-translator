@@ -1,8 +1,10 @@
 class TranslationsController < ApplicationController
-  def create
+  before_filter :authenticate_user!
 
+  def create
     @passage = Phrase.find(params[:phrase_id])
     @new_translation = @passage.translations.build(trans_params)
+    @new_translation.user = current_user
 
     if @new_translation.save
       flash[:notice] = "Translation saved!"

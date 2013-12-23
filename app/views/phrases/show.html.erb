@@ -27,22 +27,30 @@
         </div>
 
         <div class="col-lg-4 col-lg-offset-2 col-md-4 col-offset-2">
-
+          <% if user_signed_in? %>
             <%= form_for [@passage, @new_translation] do |f| %>
               <div class="control-group">
                 <%= f.label :translation, class: 'hidden' %>
-                <%= f.text_area :translation %>
+                <%= f.text_area :translation, style: "width: 300px; height: 100px", class: "form-control" %>
               </div>
               <br/>
               <div class="control-group">
                 <p><%= f.submit 'Submit My Translation', class: 'btn btn-primary' %></p>
               </div>
             <% end %>
+          <% else %>
+            <p>Please <%= link_to("sign up", new_registration_path("user")) %> or <%= link_to("sign in", new_user_session_path) %> to submit translations.</p>
+          <% end %>
 
-          <% @passage.translations.each do |translation| %>
-            <div class="well">
-              <%= translation.translation %>
-            </div>
+          <% if @translations.count > 0 %>
+            <hr />
+            <p>Existing translations</p>
+            <% @translations.each do |translation| %>
+              <div class="well">
+                <p><%= translation.translation %></p>
+                <p>by <%= translation.user.email %></p>
+              </div>
+            <% end %>
           <% end %>
         </div>
 

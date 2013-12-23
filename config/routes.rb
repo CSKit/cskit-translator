@@ -5,7 +5,7 @@ CSKitTranslator::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'phrases#index'
 
   resources :phrases, only: [:show] do
     resources :translations, only: [:create]
