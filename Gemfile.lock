@@ -41,6 +41,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    addressable (2.3.5)
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
@@ -69,6 +70,9 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    google_fish (0.2.2)
+      addressable
+      json
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -169,6 +173,7 @@ DEPENDENCIES
   cskit!
   cskit-shkts!
   devise
+  google_fish
   jbuilder (~> 1.2)
   jquery-rails
   pg

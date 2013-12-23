@@ -42,6 +42,9 @@
           <% else %>
             <p>Please <%= link_to("sign up", new_registration_path("user")) %> or <%= link_to("sign in", new_user_session_path) %> to submit translations.</p>
           <% end %>
+              <div class="well">
+                <p><%= @preseed %></p>
+              </div>
 
           <% if @translations.count > 0 %>
             <hr />

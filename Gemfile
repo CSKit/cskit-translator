@@ -29,6 +29,7 @@ gem "devise"
 
 gem "cskit", github: "CSOBerkeley/cskit-rb"
 gem "cskit-shkts", github: "CSOBerkeley/cskit-shkts-rb"
+gem "google_fish"
 
 group :development do
   gem 'pry-nav'
