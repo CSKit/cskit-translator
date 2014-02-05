@@ -7,7 +7,8 @@ CSKitTranslator::Application.load_tasks
 
 task :create_preseed_user => :environment do
   User.where(:email => 'cshackathon@gmail.com')
-    .first_or_create(:password => ENV['EMAIL_PASSWORD'], :name => 'autotranslation')
+    .first_or_create(:password => 'this_is_not_a_password', :name => 'autotranslation')
+    #ENV['EMAIL_PASSWORD'] this is the production password
 end
 
 task :preseed => :environment do
