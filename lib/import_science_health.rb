@@ -8,7 +8,7 @@ COMBINERS = [
   lambda { |phrase| phrase == "." }
 ]
 
-# mac os only
+# mac os, ubuntu 12.04 too!
 WORD_LIST = File.read("/usr/share/dict/words").split("\n")
 
 def fix_hyphens(text)
