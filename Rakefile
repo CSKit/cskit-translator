@@ -7,7 +7,7 @@ CSKitTranslator::Application.load_tasks
 
 task :create_preseed_user => :environment do
   User.where(:email => 'cshackathon@gmail.com')
-    .first_or_create(:password => ENV['EMAIL_PASSWORD'])
+    .first_or_create(:password => ENV['EMAIL_PASSWORD'], :name => 'autotranslation')
 end
 
 task :preseed => :environment do
