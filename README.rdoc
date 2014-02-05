@@ -1,5 +1,7 @@
 == README
 
+Read over the Getting Started instructions at https://github.com/jamesaimonetti/cskit-translator/tree/master/doc/GETTING_STARTED.md
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

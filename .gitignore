@@ -8,3 +8,4 @@ log/
 tmp/
 db/*.sqlite3
 *.sublime*
+*~
