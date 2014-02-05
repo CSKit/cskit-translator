@@ -50,7 +50,7 @@
             <% @translations.each do |translation| %>
               <div class="well">
                 <p><%= translation.translation %></p>
-                <p>by <%= translation.user.email %></p>
+                <p>by <%= translation.user.name %></p>
               </div>
             <% end %>
           <% end %>
