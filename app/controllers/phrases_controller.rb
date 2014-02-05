@@ -10,8 +10,8 @@ class PhrasesController < ApplicationController
     @passage_with_text = surrounding_text(@passage)
     @new_translation = Translation.new
     
-    google = GoogleFish.new(ENV['GOOGLE_KEY'])
-    @preseed = google.translate(:en, :zh, @passage.key)
+    # google = GoogleFish.new(ENV['GOOGLE_KEY'])
+    @preseed = 'Preseed' #google.translate(:en, :zh, @passage.key)
 
   end
 end
