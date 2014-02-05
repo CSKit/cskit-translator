@@ -1,6 +1,6 @@
 .DS_Store
-.directory
-log/
-tmp/
-db/*.sqlite3
-*.sublime*
+tmp
+log/*
+db/development.sqlite3
+
+
