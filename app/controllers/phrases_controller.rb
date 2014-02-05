@@ -18,4 +18,5 @@ class PhrasesController < ApplicationController
 
 
   end
+
 end

@@ -1,0 +1,11 @@
+  <div class="well">
+	<p><%= translation.translation %></p>
+	<p><small>by <%= translation.user.display_name %> on <%= translation.display_time %></small></p>
+	<p><strong>Good Translation?</strong> <%= link_to upvote_path(translation_id: translation.id, phrase_id: @passage.id)  do %>
+		<i class="glyphicon glyphicon-thumbs-up"></i> (<%= Vote.where(translation: translation, value: 1).count %>)
+		<% end %> &nbsp; 
+		<%= link_to downvote_path(translation_id: translation.id, phrase_id: @passage.id)  do %>
+		<i class="glyphicon glyphicon-thumbs-down"></i> (<%= Vote.where(translation: translation, value: -1).count %>)
+		<% end %>
+	</p>
+  </div>

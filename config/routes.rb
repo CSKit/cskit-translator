@@ -11,6 +11,9 @@ CSKitTranslator::Application.routes.draw do
     resources :translations, only: [:create]
   end
 
+  get "upvote" => "votes#upvote", :as => "upvote"
+  get "downvote" => "votes#downvote", :as => "downvote"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
