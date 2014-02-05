@@ -1,4 +1,4 @@
-require 'google_fish'
+
 class PhrasesController < ApplicationController
   def index
     redirect_to phrase_path((Phrase.count * rand).to_i)
@@ -10,8 +10,8 @@ class PhrasesController < ApplicationController
     @passage_with_text = surrounding_text(@passage)
     @new_translation = Translation.new
     
-    google = GoogleFish.new('AIzaSyByAx33iCWb9hYGtxa3eLNkeaQZInrwzx8')
-    @preseed = google.translate(:en, :zh, @passage.key)
+    #google = GoogleFish.new('')
+    @preseed = 'Preseed placeholder' #google.translate(:en, :zh, @passage.key)
 
   end
 end
