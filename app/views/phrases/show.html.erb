@@ -30,7 +30,7 @@
             <%= form_for [@passage, @new_translation] do |f| %>
               <div class="control-group">
                 <%= f.label :translation, class: 'hidden' %>
-                <%= f.text_area :translation, style: "width: 300px; height: 100px", class: "form-control" %>
+                <%= f.text_area :translation, style: "width: 300px; height: 100px", class: "form-control", placeholder: @preseed %>
               </div>
               <br/>
               <div class="control-group">
@@ -41,7 +41,7 @@
             <p>Please <%= link_to("sign up", new_registration_path("user")) %> or <%= link_to("sign in", new_user_session_path) %> to submit translations.</p>
           <% end %>
               <div class="well">
-                <p><%= @preseed %></p>
+                <p><%= @preseed %><br />auto translation</p>
               </div>
 
           <% if @translations.count > 0 %>
