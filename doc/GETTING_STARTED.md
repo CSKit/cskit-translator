@@ -4,6 +4,17 @@ So glad you could join us!
 
 First things first, let's get you setup to play with the code!
 
+== Quick Command Reference ==
+
+If you are setting up a second development environment or know what you are doing, these are the commands you are looking for. If this is the first time or you need more information, please keep reading:
+
+git clone git@github.com:CSKit/cskit-translator.git
+cd cskit-translator
+bundle exec rake db:migrate RAILS_ENV=development
+bundle exec rake db:seed
+bundle exec rails server
+
+
 == Installation Instructions ==
 
 While we hope to cover the majority of environments, the following instructions are not necessarily comprehensive. Please fork the project and issue pull requests with updates when you encounter differences.
@@ -102,7 +113,6 @@ Now that you have the project checked out, let's get it started!
 ```
 cd cskit-translator
 bundle install
-bundle exec rake db:migrate
 bundle exec rake db:migrate RAILS_ENV=development
 bundle exec rails r lib/import_science_health.rb
 

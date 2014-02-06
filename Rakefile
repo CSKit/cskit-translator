@@ -5,12 +5,6 @@ require File.expand_path('../config/application', __FILE__)
 
 CSKitTranslator::Application.load_tasks
 
-task :create_preseed_user => :environment do
-  User.where(:email => 'cshackathon@gmail.com')
-    .first_or_create(:password => 'this_is_not_a_password', :name => 'autotranslation')
-    #ENV['EMAIL_PASSWORD'] this is the production password
-end
-
 task :preseed => :environment do
   google = GoogleFish.new(ENV['GOOGLE_KEY'])
   user = User.where(:email => 'cshackathon@gmail.com').first
