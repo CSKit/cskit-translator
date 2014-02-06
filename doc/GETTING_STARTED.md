@@ -8,12 +8,14 @@ First things first, let's get you setup to play with the code!
 
 If you are setting up a second development environment or know what you are doing, these are the commands you are looking for. If this is the first time or you need more information, please keep reading:
 
+```
 git clone git@github.com:CSKit/cskit-translator.git
 cd cskit-translator
 bundle exec rake db:migrate RAILS_ENV=development
 bundle exec rake db:seed
 bundle exec rails server
 
+```
 
 == Installation Instructions ==
 
