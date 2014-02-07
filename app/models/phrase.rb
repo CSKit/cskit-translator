@@ -33,7 +33,7 @@ class Phrase < ActiveRecord::Base
 
     # Now that we've got a list of translations and their corresponding
     # summed vote values, we can select the maximum vote value per locale.
-    final = Translation
+    Translation
       .select([                                                 # All relevant columns from inner_query
         trans_counts[:id], trans_counts[:translation],
         trans_counts[:phrase_id], trans_counts[:user_id],
