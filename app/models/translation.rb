@@ -1,6 +1,7 @@
 class Translation < ActiveRecord::Base
   belongs_to :phrase
   belongs_to :user
+  has_many :votes
 
   validates :translation, presence: true
   
