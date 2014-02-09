@@ -1,14 +1,14 @@
 
 class PhrasesController < ApplicationController
   def index
-    redirect_to Phrase.rand_phrase
+    @phrases = Phrase.pluck(:key).first(100)
   end
 
   def show
     @passage = Phrase.find(params[:id])
     @translations = @passage.top_translations
     @passage_with_text = @passage.phrase_context
-    
+
     @new_translation = Translation.new
     
     preseed_user_id = User.find_by_email('cshackathon@gmail.com').id
