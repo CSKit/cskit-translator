@@ -11,6 +11,7 @@ If you are setting up a second development environment or know what you are doin
 ```
 git clone git@github.com:CSKit/cskit-translator.git
 cd cskit-translator
+bundle install
 bundle exec rake db:migrate RAILS_ENV=development
 bundle exec rake db:seed
 bundle exec rails server
