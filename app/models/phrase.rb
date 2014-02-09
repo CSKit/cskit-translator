@@ -19,4 +19,8 @@ class Phrase < ActiveRecord::Base
     self.translations.reverse_order.limit(10).includes(:user)
   end
 
+  def best_translation
+    # self.translations.joins("LEFT OUTER JOIN votes ON translations.id = votes.translation_id").group(:translation_id).sum("value")
+  end
+
 end

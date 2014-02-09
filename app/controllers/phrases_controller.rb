@@ -1,7 +1,7 @@
 
 class PhrasesController < ApplicationController
   def index
-    @phrases = Phrase.pluck(:key).first(100)
+    @phrases = Phrase.first(100)
   end
 
   def show
