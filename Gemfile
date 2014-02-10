@@ -29,7 +29,7 @@ gem "twitter_cldr", :github => "twitter/twitter-cldr-rb", :branch => "v3.0"
 gem "bootstrap-sass"
 gem "devise"
 
-gem "cskit", :path => "~/workspace/cskit-rb" #github: "CSOBerkeley/cskit-rb"
+gem "cskit", github: "CSOBerkeley/cskit-rb"
 gem "cskit-shkts", github: "CSOBerkeley/cskit-shkts-rb"
 gem "google_fish"
 
