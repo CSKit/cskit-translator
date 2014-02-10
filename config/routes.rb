@@ -1,5 +1,5 @@
 CSKitTranslator::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -10,6 +10,9 @@ CSKitTranslator::Application.routes.draw do
   resources :phrases, only: [:show] do
     resources :translations, only: [:create]
   end
+
+  get "upvote" => "votes#upvote", :as => "upvote"
+  get "downvote" => "votes#downvote", :as => "downvote"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,5 +1,3 @@
-<div class="container">
-
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1 col-md-4 col-md-offset-1">
 
@@ -32,7 +30,7 @@
             <%= form_for [@passage, @new_translation] do |f| %>
               <div class="control-group">
                 <%= f.label :translation, class: 'hidden' %>
-                <%= f.text_area :translation, style: "width: 300px; height: 100px", class: "form-control" %>
+                <%= f.text_area :translation, style: "width: 300px; height: 100px", class: "form-control", placeholder: @preseed %>
               </div>
               <br/>
               <div class="control-group">
@@ -40,21 +38,17 @@
               </div>
             <% end %>
           <% else %>
-            <p>Please <%= link_to("sign up", new_registration_path("user")) %> or <%= link_to("sign in", new_user_session_path) %> to submit translations.</p>
+            <p>Please <%= link_to("Sign up", new_registration_path("user")) %> or <%= link_to("Sign in", new_user_session_path) %> to submit translations.</p>
           <% end %>
+
               <div class="well">
-                <p><%= @preseed %></p>
+                <p><%= @preseed %><br />auto translation</p>
               </div>
 
           <% if @translations.count > 0 %>
             <hr />
-            <p>Existing translations</p>
-            <% @translations.each do |translation| %>
-              <div class="well">
-                <p><%= translation.translation %></p>
-                <p>by <%= translation.user.email %></p>
-              </div>
-            <% end %>
+            <h4>Submitted translations</h4>
+            <%= render partial: "translation", collection: @translations %>
           <% end %>
         </div>
 
@@ -62,5 +56,3 @@
 
     </div>
   </div>
-
-</div>
