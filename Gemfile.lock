@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/CSOBerkeley/cskit-rb.git
+  remote: git://github.com/CSKit/cskit-rb.git
   revision: 75ba23d099a634c115521db324e06828e09ee4c2
   specs:
     cskit (1.0.0)
@@ -7,7 +7,7 @@ GIT
       treetop
 
 GIT
-  remote: git://github.com/CSOBerkeley/cskit-shkts-rb.git
+  remote: git://github.com/CSKit/cskit-shkts-rb.git
   revision: 18086509314b437d5f68b42dc7a8a92247761f6e
   specs:
     cskit-shkts (1.0.0)

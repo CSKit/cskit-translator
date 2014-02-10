@@ -29,8 +29,8 @@ gem "twitter_cldr", :github => "twitter/twitter-cldr-rb", :branch => "v3.0"
 gem "bootstrap-sass"
 gem "devise"
 
-gem "cskit", github: "CSOBerkeley/cskit-rb"
-gem "cskit-shkts", github: "CSOBerkeley/cskit-shkts-rb"
+gem "cskit", github: "CSKit/cskit-rb"
+gem "cskit-shkts", github: "CSKit/cskit-shkts-rb"
 gem "google_fish"
 
 group :development do
