@@ -12,7 +12,7 @@ task :create_preseed_user => :environment do
     .first_or_create(:password => ENV['EMAIL_PASSWORD'])
 end
 
-task :preseed => :environment do
+task :preseed => [:environment, :create_preseed_user] do
   google = GoogleFish.new(ENV['GOOGLE_KEY'])
   user = User.where(:email => 'cshackathon@gmail.com').first
 
