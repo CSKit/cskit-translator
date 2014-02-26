@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140209234217) do
+ActiveRecord::Schema.define(version: 20140226042613) do
 
   create_table "phrases", force: true do |t|
-    t.text     "key",        null: false
+    t.text     "key",                              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "page"
+    t.boolean  "marginal_heading", default: false
   end
 
   create_table "translations", force: true do |t|

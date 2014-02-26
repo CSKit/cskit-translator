@@ -36,6 +36,7 @@ class ScienceHealthImporter
       reader.each_paragraph(1, "vi") do |paragraph|
         $stdout.write("\rProcessing page #{paragraph.page_start}... ")
         paragraph_text = fix_hyphens(paragraph.lines.map(&:text).join(" "))
+        paragraph_text = italicize(paragraph_text)
 
         texts = if by_paragraph
           [paragraph_text]
@@ -44,17 +45,28 @@ class ScienceHealthImporter
         end
 
         texts.each do |text|
-          cur_phrase = Phrase.create(
+          Phrase.create(
             key: text,
             page: paragraph.page_start
           )
         end
 
-        # Uncomment to only seed the first chapter
-        if paragraph.page_start == "18"
-          break    
+        # add marginal heading if it exists
+        # it will always be attached (incorrectly) to the last line in the paragraph
+        # it _should_ be connected to the first line of the next paragraph (cskit-rb needs some help)
+        if paragraph.lines.last.flyout_text
+          Phrase.create(
+            key: paragraph.lines.last.flyout_text,
+            page: paragraph.page_end,
+            marginal_heading: true
+          )
         end
-        
+
+        # Uncomment to only seed the first chapter
+        if paragraph.page_start == "2"
+          break
+        end
+
       end
 
       puts "done."
@@ -90,5 +102,13 @@ class ScienceHealthImporter
       end.join(" ")
     end
 
+    # Text wrapped in underscores _ should instead be wrapped in <em></em> tags
+    # Example Input:  And God created the _earth_.
+    # Example Output: And God created the <em>earth</em>.
+    def italicize(text)
+      text.gsub(/_\w{1,500}?_/) do |match|
+        '<em>' + match[1...-1] + '</em>'
+      end
+    end
   end
 end
