@@ -11,7 +11,8 @@ require './lib/chinese_translation_importer'
 
 puts "Lean back and enjoy the show, this may take a while.."
 puts "-> Importing English Science & Health text... "
-ScienceHealthImporter.import(ENV["BY_PARAGRAPH"] == "true")
+by_paragraph = ENV.include?("BY_PARAGRAPH") ? ENV["BY_PARAGRAPH"] == "true" : true
+ScienceHealthImporter.import(by_paragraph)
 
 puts "-> Importing Chinese Google Translation preseed... "
 ChineseTranslationImporter.import
