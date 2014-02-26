@@ -15,7 +15,7 @@
     <ul class="nav navbar-nav navbar-left">
       <li><%= link_to "About", about_path %></li>
       <li><%= link_to "Read English/Chinese", phrases_path %></li>
-      <li><%= link_to "Help Translate", Phrase.rand_phrase %></li>
+      <li><%= link_to "Help Translate", phrase_path(21) %></li>
 
       <% if @passage %>
         <li>
