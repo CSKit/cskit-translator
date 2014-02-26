@@ -36,6 +36,7 @@ class ScienceHealthImporter
       reader.each_paragraph(1, "vi") do |paragraph|
         $stdout.write("\rProcessing page #{paragraph.page_start}... ")
         paragraph_text = fix_hyphens(paragraph.lines.map(&:text).join(" "))
+        paragraph_text = italicize(paragraph_text)
 
         texts = if by_paragraph
           [paragraph_text]
@@ -52,9 +53,9 @@ class ScienceHealthImporter
 
         # Uncomment to only seed the first chapter
         if paragraph.page_start == "18"
-          break    
+          break
         end
-        
+
       end
 
       puts "done."
@@ -90,5 +91,13 @@ class ScienceHealthImporter
       end.join(" ")
     end
 
+    # Text wrapped in underscores _ should instead be wrapped in <em></em> tags
+    # Example Input:  And God created the _earth_.
+    # Example Output: And God created the <em>earth</em>.
+    def italicize(text)
+      gsub(/_\w{1,500}?_/) do |match|
+        '<em>' + match[1...-1] + '</em>'
+      end
+    end
   end
 end
