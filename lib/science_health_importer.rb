@@ -20,7 +20,7 @@ class ScienceHealthImporter
     include CSKit::Readers
     WORD_LIST = File.read(Pathname(__FILE__).dirname.join("wordlist.txt")).split("\r\n")
 
-    def import(by_paragraph = false)
+    def import(by_paragraph = true)
       volume = CSKit.get_volume(:science_health)
       reader = ScienceHealthReader.new(volume)
       break_iter = ScienceHealthBreakIterator.new(:en)
