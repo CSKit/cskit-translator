@@ -21,7 +21,7 @@ task :preseed => [:environment, :create_preseed_user] do
   user = User.where(:email => 'cshackathon@gmail.com').first
 
   # Phrase.find_in_batches(:start => 1, :batch_size => 5) do |batch|
-  Phrase.limit(5).each do |phrase|
+  Phrase.all.each do |phrase|
     # batch.each do |phrase|
       phrase.translations.create(
         :translation => google.translate(:en, :zh, phrase.key),

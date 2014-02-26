@@ -63,7 +63,7 @@ class ScienceHealthImporter
         end
 
         # Uncomment to only seed the first chapter
-        if paragraph.page_start == "2"
+        if paragraph.page_start == "18"
           break
         end
 
@@ -106,7 +106,7 @@ class ScienceHealthImporter
     # Example Input:  And God created the _earth_.
     # Example Output: And God created the <em>earth</em>.
     def italicize(text)
-      text.gsub(/_\w{1,500}?_/) do |match|
+      text.gsub(/_.{1,500}?_/m) do |match|
         '<em>' + match[1...-1] + '</em>'
       end
     end
