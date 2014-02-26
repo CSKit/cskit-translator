@@ -51,9 +51,9 @@ class ScienceHealthImporter
         end
 
         # Uncomment to only seed the first chapter
-        # if paragraph.page_start == "18"
-        #   break    
-        # end
+        if paragraph.page_start == "18"
+          break    
+        end
         
       end
 
