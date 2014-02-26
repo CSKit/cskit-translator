@@ -9,13 +9,13 @@ class VotesController < ApplicationController
 
   def upvote
     render_vote(
-      perform_vote(UPVOTE_VALUE)
+      perform_vote(vote_value: UPVOTE_VALUE)
     )
   end
 
   def downvote
     render_vote(
-      perform_vote(DOWNVOTE_VALUE)
+      perform_vote(vote_value: DOWNVOTE_VALUE)
     )
   end
 
