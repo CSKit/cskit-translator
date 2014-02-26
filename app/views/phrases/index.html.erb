@@ -6,8 +6,8 @@
   <div class="col-md-5 col-md-offset-1 col-sm-6">
     <h4>Original Text (English)</h4>
     <p>
-      <%= @phrases.each do |phrase| %>
-        <%= link_to phrase.key, phrase_path(phrase) %>
+      <%- @phrases.each do |phrase| %>
+        <p><%= link_to phrase.key, phrase_path(phrase) %></p>
       <% end %>
     </p>
   </div>
@@ -15,8 +15,8 @@
   <div class="col-md-5 col-sm-6">
     <h4>Chinese Translation</h4>
     <p>
-      <%= @phrases.each do |phrase| %>
-        <%= link_to phrase.key, phrase_path(phrase) %>
+      <%- @translations.values.each do |translation| %>
+        <p><%= translation %></p>
       <% end %>
     </p>
   </div>

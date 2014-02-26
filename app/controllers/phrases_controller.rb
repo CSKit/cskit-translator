@@ -1,7 +1,15 @@
 
 class PhrasesController < ApplicationController
   def index
-    @phrases = Phrase.first(100)
+    @phrases = Phrase.all
+
+    @translations = Phrase.best_translations.each_with_object({}) do |trans, ret|
+      ret[trans.phrase_id] = trans.translation
+    end
+
+    Phrase.find(Phrase.pluck(:id) - @translations.keys).each_with_object(@translations) do |phrase, ret|
+      ret[phrase.id] = phrase.key
+    end
   end
 
   def show
