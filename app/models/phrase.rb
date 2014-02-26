@@ -50,8 +50,8 @@ class Phrase < ActiveRecord::Base
     self.class.best_translations_for([self.id])
   end
 
-  def self.rand_phrase 
-    Phrase.find(rand(Phrase.count) + 1)
+  def self.rand_phrase
+    Phrase.order('random()').limit(1).first
   end
 
   def phrase_context
