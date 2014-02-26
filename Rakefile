@@ -13,7 +13,7 @@ task :create_preseed_user => :environment do
 end
 
 namespace :db do
-  task :rebuild => ["db:drop", "db:create", "db:schema:load", "db:seed"]
+  task :rebuild => ["db:drop", "db:create", "db:schema:load", "db:migrate", "db:seed"]
 end
 
 task :preseed => [:environment, :create_preseed_user] do
