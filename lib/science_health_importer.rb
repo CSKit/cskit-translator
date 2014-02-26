@@ -45,9 +45,20 @@ class ScienceHealthImporter
         end
 
         texts.each do |text|
-          cur_phrase = Phrase.create(
+          Phrase.create(
             key: text,
             page: paragraph.page_start
+          )
+        end
+
+        # add marginal heading if it exists
+        # it will always be attached (incorrectly) to the last line in the paragraph
+        # it _should_ be connected to the first line of the next paragraph (cskit-rb needs some help)
+        if paragraph.lines.last.flyout_text
+          Phrase.create(
+            key: paragraph.lines.last.flyout_text,
+            page: paragraph.page_end,
+            marginal_heading: true
           )
         end
 
