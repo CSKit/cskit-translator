@@ -8,5 +8,9 @@ class Translation < ActiveRecord::Base
   def display_time
 	  created_at.to_time.strftime('%B %e, %Y at %l:%M %p')
   end
+
+  def self.best_translations
+    joins(:phrases, :votes).group(:phrase_id).sum(:value).order("phrase_id, sum_value")
+  end
   
 end
