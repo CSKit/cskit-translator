@@ -8,7 +8,6 @@ CSKitTranslator::Application.routes.draw do
   root 'static#home'
 
   get 'home' => 'static#home'
-  get 'about' => 'static#about'
 
   resources :phrases, only: [:show, :index] do
     resources :translations, only: [:create]
