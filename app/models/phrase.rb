@@ -56,11 +56,11 @@ class Phrase < ActiveRecord::Base
 
   def phrase_context
     if self.id == 1
-      ['',Phrase.find(self.id + 1)]
+      ['',Phrase.find(self.id + 1).key]
     elsif self.id == Phrase.count
-      [Phrase.find(self.id - 1), '']
+      [Phrase.find(self.id - 1).key, '']
     else
-      [Phrase.find(self.id - 1), Phrase.find(self.id + 1)]
+      [Phrase.find(self.id - 1).key, Phrase.find(self.id + 1).key]
     end
   end
 
