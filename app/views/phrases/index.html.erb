@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<%= @phrases.each do |phrase| %>
+<% @phrases.each do |phrase| %>
   <div class="row">
 
     <div class="col-md-5 col-md-offset-1 col-sm-6">
@@ -19,8 +19,19 @@
     </div>
 
     <div class="col-md-5 col-sm-6">
-      <p><%= @translations[phrase.id] %></p>
+      <p>
+        <% if @translations[phrase.id].locale == "en" %>
+          <!-- lighter color -->
+          <a href="<%= phrase_path(phrase) %>">
+            <em><span class="faded_text"><%= @translations[phrase.id].text %></span></em>
+          </a>
+        <% else %>
+          <%= @translations[phrase.id].text %>
+        <% end %>
+      </p>
     </div>
   </div>
+
+  <hr />
 
 <% end %>

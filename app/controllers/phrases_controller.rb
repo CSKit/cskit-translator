@@ -3,12 +3,12 @@ class PhrasesController < ApplicationController
   def index
     @phrases = Phrase.all
     @translations = Translation.robot_translations_hash(@phrases.pluck(:id))
-    @translations = Phrase.best_translations.each_with_object({}) do |trans, ret|
-      ret[trans.phrase_id] = trans.translation
+    @translations = Phrase.best_translations_for(@phrases.map(&:id)).each_with_object({}) do |trans, ret|
+      ret[trans.phrase_id] = TranslatedPhrase.new(trans.translation, trans.locale)
     end
 
     Phrase.find(Phrase.pluck(:id) - @translations.keys).each_with_object(@translations) do |phrase, ret|
-      ret[phrase.id] = phrase.key
+      ret[phrase.id] = TranslatedPhrase.new(phrase.key, "en")
     end
   end
 
@@ -27,3 +27,5 @@ class PhrasesController < ApplicationController
   end
 
 end
+
+TranslatedPhrase = Struct.new(:text, :locale)
