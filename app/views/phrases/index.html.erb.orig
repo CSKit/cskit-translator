@@ -1,0 +1,42 @@
+<h1>Science & Health, with Key to the Scriptures</h1>
+<h3>By Mary Baker Eddy</h3>
+<hr/>
+
+<div class="row">
+  <div class="col-md-5 col-md-offset-1 col-sm-6">
+    <h4>Original Text (English)</h4>
+<<<<<<< HEAD
+    <p>
+      <%- @phrases.each do |phrase| %>
+        <p><%= link_to phrase.key, phrase_path(phrase) %></p>
+      <% end %>
+    </p>
+=======
+>>>>>>> ec5eb3f4e599f3d00a89bd1410739aec72a06483
+  </div>
+  <div class="col-md-5 col-sm-6">
+    <h4>Chinese Translation</h4>
+<<<<<<< HEAD
+    <p>
+      <%- @translations.values.each do |translation| %>
+        <p><%= translation %></p>
+      <% end %>
+    </p>
+=======
+>>>>>>> ec5eb3f4e599f3d00a89bd1410739aec72a06483
+  </div>
+</div>
+
+<%= @phrases.each do |phrase| %>
+  <div class="row">
+
+    <div class="col-md-5 col-md-offset-1 col-sm-6">
+      <p><%= link_to phrase.key, phrase_path(phrase) %></p>
+    </div>
+
+    <div class="col-md-5 col-sm-6">
+      <p><%= @translations[phrase.id] %></p>
+    </div>
+  </div>
+
+<% end %>

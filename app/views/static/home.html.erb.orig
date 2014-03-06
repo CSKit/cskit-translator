@@ -1,0 +1,36 @@
+<<<<<<< HEAD
+<h1> Welcome to the Science and Health Translator!
+</h1>
+
+<hr/>
+<h4> How it works
+  </h4>
+  <p> Choose a paragraph that you would like to translate and enter your translation in the translation box. You can also vote for your favorite translations and read a page at a time with the highest voted translations. 
+    </p>
+<p>
+  Right now our goal is to focus on Chinese but we plan to expand to other languages in the future. 
+  </p>
+  <div id="translator_image">
+     <%=image_tag("cskit-translator.png", height: '400', width: '800')%>
+
+</div>
+=======
+<h1> Welcome to the Science and Health Translator!</h1>
+
+<hr/>
+
+<h3>How it works</h3>
+<p> 
+  Choose a paragraph that you would like to translate and enter your translation in the translation box. You can also vote for your favorite translations and read a page at a time with the highest voted translations. 
+</p>
+<p>
+  Right now our goal is to focus on Chinese but we plan to expand to other languages in the future. 
+</p>
+<div id="translator_image">
+   <%=image_tag("cskit-translator.png", height: '400', width: '800')%>
+</div>
+
+<hr/>
+<h5>This project was made by the <a href="http://cshackathon.org/">CSHackathon group</a></h5>
+
+>>>>>>> b901107a36fb2bec73ff1814d8ba1440601153ed
