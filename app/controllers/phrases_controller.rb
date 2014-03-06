@@ -2,7 +2,7 @@
 class PhrasesController < ApplicationController
   def index
     @phrases = Phrase.all
-
+    @translations = Translation.robot_translations_hash(@phrases.pluck(:id))
     @translations = Phrase.best_translations.each_with_object({}) do |trans, ret|
       ret[trans.phrase_id] = trans.translation
     end
