@@ -1,7 +1,8 @@
 
 class PhrasesController < ApplicationController
   def index
-    @phrases = Phrase.first(100)
+    @phrases = Phrase.all
+    @translations = Translation.robot_translations_hash(@phrases.pluck(:id))
   end
 
   def show
