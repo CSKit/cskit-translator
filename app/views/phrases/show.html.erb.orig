@@ -14,20 +14,32 @@
         <div class="col-lg-5 col-md-5">
           <p id="passage_text">
             <p>
-              <%= raw @passage_with_text[0] %>
-            </p>          
+<<<<<<< HEAD
+              "<%= @passage_with_text[0].key %>
+=======
+              "<%= raw @passage_with_text[0] %>
+>>>>>>> 471ff5c673fb8570887cdbea91d67bf8175130f6
+            </p>
 
             <span id="main_text">
               <p>
+<<<<<<< HEAD
+                <%= @passage.key %>
+              </p>
+            </span>
+            <p>
+              <%= @passage_with_text[1].key %>"
+            </p>
+          </p>
+=======
                 <%= raw @passage.key %>
               </p>
             </span>
-
             <p>
-              <%= raw @passage_with_text[1] %>
-            </p>          
-
-          </p>          
+              <%= raw @passage_with_text[1] %>"
+            </p>
+            
+>>>>>>> 471ff5c673fb8570887cdbea91d67bf8175130f6
         </div>
 
         <div class="col-lg-5  col-md-5 ">
