@@ -15,9 +15,10 @@ class ChineseTranslationImporter
           "delete from `#{table}`; delete from sqlite_sequence where name='#{table}';"
         )
       else
-        ActiveRecord::Base.connection.execute(
-          "truncate table `#{table}`;"
-        )
+        # This doesn't work in production. Please run the heroku pg:reset command instead.
+        # ActiveRecord::Base.connection.execute(
+        #   "truncate table `#{table}`;"
+        # )
       end
     end
 
