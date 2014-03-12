@@ -18,10 +18,30 @@
   width: 70%;
 }
 
-.faded_text {
-  color: #999;
+.auto-translation {
+  background-color: #ffd;
+}
+
+.black {
+  color: #000;
+}
+
+.good-translation {
+  background-color: #cfc;
 }
 
 .well {
   overflow: hidden;
+}
+
+.rounded {
+  border-radius: 15px;
+}
+
+.pad10 {
+  padding: 10px;
+}
+
+.margin10 {
+  margin: 10px;
 }

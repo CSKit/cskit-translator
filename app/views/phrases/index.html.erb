@@ -7,31 +7,32 @@
     <h4>Original Text (English)</h4>
   </div>
   <div class="col-md-5 col-sm-6">
-    <h4>Chinese Translation</h4>
+    <h4 class="pull-left">Chinese Translation</h4>
+    <span
+      class="glyphicon glyphicon-info-sign margin10 tooltippable"
+      title="Please fix the auto-translations, shown in yellow"
+      >
+    </span>
   </div>
 </div>
 
 <% @phrases.each do |phrase| %>
-  <div class="row">
+  <% trans = @translations[phrase.id] %>
+<div class="row">
 
-    <div class="col-md-5 col-md-offset-1 col-sm-6">
-      <p><%= link_to phrase.key, phrase_path(phrase) %></p>
-    </div>
-
-    <div class="col-md-5 col-sm-6">
-      <p>
-        <% if @translations[phrase.id].locale == "en" %>
-          <!-- lighter color -->
-          <a href="<%= phrase_path(phrase) %>">
-            <em><span class="faded_text"><%= @translations[phrase.id].text %></span></em>
-          </a>
-        <% else %>
-          <%= @translations[phrase.id].text %>
-        <% end %>
-      </p>
-    </div>
+  <div class="col-md-5 col-md-offset-1 col-sm-6">
+    <p><%= link_to phrase.key, phrase_path(phrase) %></p>
   </div>
 
-  <hr />
+  <div class="col-md-5 col-sm-6">
+    <%= link_to phrase_path(phrase), class: 'black' do %>
+      <div class="rounded pad10 <%= trans.auto? ? 'auto' : 'good' %>-translation">
+        <%= trans.translation %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<hr />
 
 <% end %>
