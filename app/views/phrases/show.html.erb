@@ -47,10 +47,6 @@
             <p>Please <%= link_to("Sign up", new_registration_path("user")) %> or <%= link_to("Sign in", new_user_session_path) %> to submit translations.</p>
           <% end %>
 
-              <div class="well">
-                <p><%= @preseed %><br />auto translation</p>
-              </div>
-
           <% if @translations.count > 0 %>
             <hr />
             <h4>Submitted translations</h4>
