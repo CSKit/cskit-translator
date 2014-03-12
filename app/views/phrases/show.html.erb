@@ -1,60 +1,67 @@
-  <div class="row">
-    <div class="col-lg-12 col-lg-offset-1 col-md-12 col-md-offset-1">
+<div class="row">
 
-      <div class="row">
-        <div class="col-lg-5 col-md-5">
-          <h3>English</h3>
+  <div class="col-lg-12 col-lg-offset-1 col-md-12 col-md-offset-1">
+
+    <div class="row">
+
+      <div class="col-lg-5 col-md-5">
+        <h3>English</h3>
+      </div>
+      <div class="col-lg-5 col-md-5 ">
+        <h3>Translation</h3>
+      </div>
+    </div>
+  
+
+    <div class="row">
+      <div class="col-lg-5 col-md-5">
+        <div class="passage_text">
+          <p>
+          <%= raw @passage_with_text[0] %>
+          </p>
         </div>
-        <div class="col-lg-5 col-md-5 ">
-          <h3>Translation</h3>
+
+        <div class="main_text ">
+          <p>
+          <%= raw @passage.key %>
+          </p>
+        </div>
+
+        <div class="passage_text">
+          <p>
+          <%= raw @passage_with_text[1] %>
+          </p>          
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-lg-5 col-md-5">
-          <p id="passage_text">
-            <p>
-              <%= raw @passage_with_text[0] %>
-            </p>          
+      <div class="col-lg-5  col-md-5 ">
 
-            <span id="main_text">
-              <p>
-                <%= raw @passage.key %>
-              </p>
-            </span>
+        <% if user_signed_in? %>
+          <div class="alert alert-warning">Please translate only the <strong>highlighted phrase</strong>. The surrounding sentences are shown for context.</div>
+        <%= form_for [@passage, @new_translation] do |f| %>
+          <div class="control-group">
+            <%= f.label :translation, class: 'hidden' %>
+            <%= f.text_area :translation, style: "width: 300px; height: 100px", class: "form-control", placeholder: @preseed %>
+          </div>
+          <br/>
+          <div class="control-group">
+            <p><%= f.submit 'Submit My Translation', class: 'btn btn-primary' %></p>
+          </div>
+        <% end %>
+        <% else %>
+          <p>Please <%= link_to("Sign up", new_registration_path("user")) %> or <%= link_to("Sign in", new_user_session_path) %> to submit translations.</p>
+        <% end %>
 
-            <p>
-              <%= raw @passage_with_text[1] %>
-            </p>          
-
-          </p>          
-        </div>
-
-        <div class="col-lg-5  col-md-5 ">
-          <% if user_signed_in? %>
-            <div class="alert alert-warning">Please translate only the <strong>highlighted phrase</strong>. The surrounding sentences are shown for context.</div>
-            <%= form_for [@passage, @new_translation] do |f| %>
-              <div class="control-group">
-                <%= f.label :translation, class: 'hidden' %>
-                <%= f.text_area :translation, style: "width: 300px; height: 100px", class: "form-control", placeholder: @preseed %>
-              </div>
-              <br/>
-              <div class="control-group">
-                <p><%= f.submit 'Submit My Translation', class: 'btn btn-primary' %></p>
-              </div>
-            <% end %>
-          <% else %>
-            <p>Please <%= link_to("Sign up", new_registration_path("user")) %> or <%= link_to("Sign in", new_user_session_path) %> to submit translations.</p>
-          <% end %>
-
-          <% if @translations.count > 0 %>
-            <hr />
-            <h4>Submitted translations</h4>
-            <%= render partial: "translation", collection: @translations %>
-          <% end %>
-        </div>
+        <% if @translations.count > 0 %>
+          <hr />
+          <h4>Submitted translations</h4>
+          <%= render partial: "translation", collection: @translations %>
+        <% end %>
 
       </div>
 
     </div>
+
   </div>
+
+</div>
