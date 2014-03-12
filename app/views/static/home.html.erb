@@ -1,18 +1,36 @@
-<h1> Welcome to the Science and Health Translator!</h1>
+<div id="welcome_content">
+  <h1><strong>Welcome to the Science and Health Translator!</strong></h1>
 
-<hr/>
+  <hr/>
 
-<h3>How it works</h3>
-<p> 
-  Choose a paragraph that you would like to translate and enter your translation in the translation box. You can also vote for your favorite translations and read a page at a time with the highest voted translations. 
-</p>
-<p>
-  Right now our goal is to focus on Chinese but we plan to expand to other languages in the future. 
-</p>
-<div id="translator_image">
-   <%=image_tag("cskit-translator.png", height: '400', width: '800')%>
+  <p>
+    The purpose of this site is to facilitate open-source translation of the book <a href="http://www.churchofchristscientist.com/prayer-and-health/the-bible-and-science-and-health/science-and-health" target="_blank">Science and Health with Key to the Scriptures</a>, by Mary Baker Eddy. 
+  </p>
+  <p>
+    Currently we're focusing on translating to <strong>Chinese</strong>, one chapter at a time. In the future we may expand to other languages as well.
+  </p>
+
+  <br/>
+
+  <span id="example_img"><%= image_tag("cskit-translator.png", height: '250', width: '450') %></span>
+
+  <h4>Read English and Chinese side-by-side</h4>
+  <p>
+    You can read the full text of the current chapter in English, with the top-voted Chinese translation alongside it. Click on the English text to see other translations for that paragraph and vote on your favorite.
+    <br/>
+    <%= link_to 'Read Full Chapter', phrases_path, class: 'btn btn-primary' %>
+  </p>
+
+  <br/>
+
+  <h4>See all translations submitted and Contribute!</h4>
+  <p>
+    When you view an individual paragraph (from the <%= link_to 'full text', phrases_path %> page, click on a paragraph to view), you will see all of the translations that have been submitted. Registered users can submit their own translation and/or vote on others'. 
+    <br/>
+    <%= link_to 'View a Paragraph', phrase_path(1), class: 'btn btn-primary' %>
+  </p>
+
+
+  <hr/>
+  <h5>This project was made by the <a href="http://cshackathon.org/">CSHackathon group</a></h5>
 </div>
-
-<hr/>
-<h5>This project was made by the <a href="http://cshackathon.org/">CSHackathon group</a></h5>
-
