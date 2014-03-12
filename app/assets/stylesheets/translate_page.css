@@ -1,15 +1,20 @@
-#main_text {
+.main_text {
   color: #000;
   font-weight: bold;
+  background: #fef161;
 }
 
-#passage_text {
+.main_text p {
+  margin: 12px !important;
+}
+
+.passage_text {
   color: #888;
 }
 
-#translator_image{
-  margin-left:auto;
-  margin-right:auto;
+#translator_image {
+  margin-left: auto;
+  margin-right: auto;
   width: 70%;
 }
 
