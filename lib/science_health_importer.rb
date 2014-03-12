@@ -19,11 +19,33 @@ class ScienceHealthImporter
 
     include CSKit::Readers
     WORD_LIST = File.read(Pathname(__FILE__).dirname.join("wordlist.txt")).split("\r\n")
+    CHAPTER_TITLES = {
+      "vi" => "Preface",
+      "1" => "Prayer",
+      "18" => "Atonement and Eucharist",
+      "56" => "Marriage",
+      "70" => "Christian Science Versus Spiritualism",
+      "100" => "Animal Magnetism Unmasked",
+      "107" => "Science, Theology, Medicine",
+      "165" => "Physiology",
+      "201" => "Footsteps of Truth",
+      "255" => "Creation",
+      "268" => "Science of Being",
+      "341" => "Some Objections Answered",
+      "362" => "Christian Science Practice",
+      "443" => "Teaching Christian Science",
+      "465" => "Recapitulation",
+      "501" => "Genesis",
+      "558" => "The Apocalypse",
+      "579" => "Glossary",
+      "600" => "Fruitage"
+    }
 
     def import(by_paragraph = true)
       volume = CSKit.get_volume(:science_health)
       reader = ScienceHealthReader.new(volume)
       break_iter = ScienceHealthBreakIterator.new(:en)
+      chapter_titles = CHAPTER_TITLES.dup
 
       puts(if by_paragraph
         "Splitting by paragraph."
@@ -35,6 +57,17 @@ class ScienceHealthImporter
 
       reader.each_paragraph(1, "vi") do |paragraph|
         $stdout.write("\rProcessing page #{paragraph.page_start}... ")
+
+        if title = chapter_titles[paragraph.page_start]
+          Phrase.create(
+            key: title,
+            page: paragraph.page_start,
+            chapter_title: true
+          )
+
+          chapter_titles.delete(paragraph.page_start)
+        end
+
         paragraph_text = fix_hyphens(paragraph.lines.map(&:text).join(" "))
         paragraph_text = italicize(paragraph_text)
 
