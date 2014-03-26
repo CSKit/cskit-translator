@@ -1,4 +1,4 @@
-class Phrase < ActiveRecord::Base
+  class Phrase < ActiveRecord::Base
   has_many :translations
 
   # Returns the translation in each locale with the highest number of votes
@@ -24,7 +24,7 @@ class Phrase < ActiveRecord::Base
         ).join_sources
       )
       .where(phrases[:id].in(phrase_ids))                # only get translations for desired phrases
-      .group(votes[:translation_id])                     # collapse on `translation_id` so there's
+      .group(translations[:id])                          # collapse on `translation_id` so there's
                                                          #   only one row returned per group of votes
 
     # dummy intermedate table that we'll use to reference all
@@ -34,14 +34,15 @@ class Phrase < ActiveRecord::Base
     # Now that we've got a list of translations and their corresponding
     # summed vote values, we can select the maximum vote value per locale.
     Translation
-      .select([                                                 # All relevant columns from inner_query
-        trans_counts[:id], trans_counts[:translation],
-        trans_counts[:phrase_id], trans_counts[:user_id],
-        trans_counts[:locale]
-      ])
+      .select(translations[Arel.star])                          # All relevant columns from inner_query
       .select(trans_counts[:vote_sum].maximum.as('vote_sum'))   # Pick the translation with the maximum vote sum
       .from(inner_query.as(trans_counts.name))                  # Do all this on the inner_query's results
-      .group(trans_counts[:locale])                             # Only return one result (translation) per locale
+      .joins(                                                   # Join the translations table so we can return full
+        trans_counts.join(translations).on(                     #   translation rows
+          trans_counts[:id].eq(translations[:id])
+        ).join_sources
+      )
+      .group(translations[:locale], translations[:id])          # Only return one result (translation) per locale
   end
 
   # Returns the translation in each locale with the highest number of votes
