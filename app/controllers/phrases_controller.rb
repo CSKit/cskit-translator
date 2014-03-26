@@ -7,7 +7,7 @@ class PhrasesController < ApplicationController
     end
 
     Phrase.find(Phrase.pluck(:id) - @translations.keys).each_with_object(@translations) do |phrase, ret|
-      ret[phrase.id] = phrase.translations.first
+      ret[phrase.id] = phrase.translations.first || TranslatedPhrase.new(phrase.key, "en", true)
     end
   end
 
