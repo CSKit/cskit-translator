@@ -4,13 +4,13 @@ class Translation < ActiveRecord::Base
   has_many :votes
 
   validates :translation, presence: true
-  
+
   def display_time
 	  created_at.to_time.strftime('%B %e, %Y at %l:%M %p')
   end
 
   # def best_translations
-  #   find_by_sql("select * from  translations 
+  #   find_by_sql("select * from  translations
   #     left join (select translation_id, sum(value) as score from votes group by translation_id) on translations.id = translation_id
   #     where phrase_id = 1
   #     order by score desc
@@ -25,5 +25,9 @@ class Translation < ActiveRecord::Base
 
     return robot_trans
   end
-  
+
+  def auto?
+    user_id == 1
+  end
+
 end

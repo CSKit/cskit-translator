@@ -1,4 +1,3 @@
-
 class PhrasesController < ApplicationController
   def index
     @phrases = Phrase.all
@@ -8,7 +7,7 @@ class PhrasesController < ApplicationController
     end
 
     Phrase.find(Phrase.pluck(:id) - @translations.keys).each_with_object(@translations) do |phrase, ret|
-      ret[phrase.id] = TranslatedPhrase.new(phrase.key, "en")
+      ret[phrase.id] = phrase.translations.first || TranslatedPhrase.new(phrase.key, "en", true)
     end
   end
 
@@ -18,7 +17,7 @@ class PhrasesController < ApplicationController
     @passage_with_text = @passage.phrase_context
 
     @new_translation = Translation.new
-    
+
     preseed_user_id = User.find_by_email('cshackathon@gmail.com').id
     @preseed = Translation.find_by(
       :user_id => preseed_user_id,
@@ -28,4 +27,4 @@ class PhrasesController < ApplicationController
 
 end
 
-TranslatedPhrase = Struct.new(:text, :locale)
+TranslatedPhrase = Struct.new(:translation, :locale, :auto?)
