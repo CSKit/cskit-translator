@@ -1,4 +1,4 @@
-  class Phrase < ActiveRecord::Base
+class Phrase < ActiveRecord::Base
   has_many :translations
 
   # Returns the translation in each locale with the highest number of votes
