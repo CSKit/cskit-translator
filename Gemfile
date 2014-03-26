@@ -24,6 +24,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# PostgreSQL
+gem "pg"
+
 gem "twitter_cldr", :github => "twitter/twitter-cldr-rb", :branch => "v3.0"
 
 gem "bootstrap-sass"
@@ -37,7 +40,6 @@ group :development do
   gem 'pry-nav'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'sqlite3'
 end
 
 group :development, :test do
@@ -45,7 +47,6 @@ group :development, :test do
 end
 
 group :production do
-  gem "pg"
   gem "rails_12factor"
 end
 
