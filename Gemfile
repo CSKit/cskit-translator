@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.1.8'
+ruby '2.2.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.13'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -15,7 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+gem 'therubyracer'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -27,7 +27,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 # PostgreSQL
-gem "pg"
+gem 'pg', '~> 0.21'
 
 gem "twitter_cldr", :github => "twitter/twitter-cldr-rb", :branch => "v3.0"
 
@@ -46,6 +46,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rake', '< 11.0'
 end
 
 group :production do
