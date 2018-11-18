@@ -1,4 +1,4 @@
-CSKitTranslator::Application.routes.draw do
+Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   # The priority is based upon order of creation: first created -> highest priority.
