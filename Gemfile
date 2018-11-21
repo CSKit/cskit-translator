@@ -20,9 +20,6 @@ gem 'therubyracer'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -32,7 +29,7 @@ gem 'pg', '~> 0.21'
 gem 'twitter_cldr', :github => 'twitter/twitter-cldr-rb', :branch => 'v3.0'
 
 gem 'bootstrap-sass'
-gem 'devise'
+gem 'devise', '~> 3.0'
 
 gem 'cskit', github: 'CSKit/cskit-rb'
 gem 'cskit-shkts', github: 'CSKit/cskit-shkts-rb'
