@@ -3,16 +3,16 @@ source 'https://rubygems.org'
 ruby '2.2.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.16'
+gem 'rails', '4.2.10'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 5.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer'
@@ -29,14 +29,14 @@ gem 'jbuilder', '~> 1.2'
 # PostgreSQL
 gem 'pg', '~> 0.21'
 
-gem "twitter_cldr", :github => "twitter/twitter-cldr-rb", :branch => "v3.0"
+gem 'twitter_cldr', :github => 'twitter/twitter-cldr-rb', :branch => 'v3.0'
 
-gem "bootstrap-sass"
-gem "devise"
+gem 'bootstrap-sass'
+gem 'devise'
 
-gem "cskit", github: "CSKit/cskit-rb"
-gem "cskit-shkts", github: "CSKit/cskit-shkts-rb"
-gem "google_fish"
+gem 'cskit', github: 'CSKit/cskit-rb'
+gem 'cskit-shkts', github: 'CSKit/cskit-shkts-rb'
+gem 'google_fish'
 
 group :development do
   gem 'pry-nav'
@@ -50,7 +50,7 @@ group :development, :test do
 end
 
 group :production do
-  gem "rails_12factor"
+  gem 'rails_12factor'
 end
 
 group :doc do
